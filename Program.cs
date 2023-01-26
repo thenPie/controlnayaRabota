@@ -7,11 +7,17 @@ foreach(string line in lines) {
     }
 }
 
+string[] newLines = new string[count];
+
 int start = 0;
-Console.Write("[");
 foreach(string line in lines) {
     if(line.Length <= 3) {
+        newLines[start] = line;
         start++;
-        Console.Write(start == count ? $"{line}]" : $"{line}, ");
     }
+}
+
+Console.Write("[");
+for(int i = 0; i < count; i++) {
+    Console.Write(i == count - 1 ? $"{newLines[i]}]" : $"{newLines[i]}, ");
 }
